@@ -4,7 +4,7 @@
 <html>
 <body> {% endcomment %}
 {% block content%}
-<p> Hi </p>
+<p>Hi there </p>
 <form action="{% url 'polls:login'%}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
