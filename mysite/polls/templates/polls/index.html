@@ -6,7 +6,7 @@
 {% block content %}
 <h1>index</h1>
 <p>
-    {% if username %}<p><strong>Hello {{ username }}</strong></p>{%else%}<p><strong>No user name</strong></p>{% endif %}
+    {% if request.session.username %}<p><strong>Hello {{ request.session.username }}</strong></p>{%else%}<p><strong>No user name</strong></p>{% endif %}
     {% if latest_question_list %}
     <ul>
     <form action="{% url 'polls:delete_question' %}" method="post">
