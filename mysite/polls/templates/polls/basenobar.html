@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<head>
+</head>
+<body>
+    <div id="header">
+        Polls app
+    </div>
+    
+    <div id="main_content">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <div id="footer">
+        powered by django
+    </div>
+</body>
+</html>

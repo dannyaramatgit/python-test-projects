@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>index</h1>
+<p>
+    {% if latest_question_list %}
+    <ul>
+    <form action="{% url 'polls:delete_question' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+        {% for question in latest_question_list %}
+            <li> 
+                <input type="checkbox" name="q" id="question{{ forloop.counter }}" value="{{ question.id }}">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+                <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+    </fieldset>
+        <input type="submit" value="delete question">
+    </form>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %} 
+    <p><a href="{% url 'polls:add_new' %}"> Add a new question </a></p>
+    <p><a href="{% url 'polls:delete_messages' %}">Delete Questions </a></p>
+
+</p>
+
+</body>
+</html>

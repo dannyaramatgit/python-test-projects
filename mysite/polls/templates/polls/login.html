@@ -1,0 +1,14 @@
+{% extends 'polls\base.html' %}
+
+{% comment %} <!DOCTYPE html>
+<html>
+<body> {% endcomment %}
+{% block content%}
+
+<form action="{% url 'polls:login'%}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="login">
+</form>
+{% if msg %}<p style={'color':'white'>}> {{ msg }}</p> {% endif %}
+{%endblock%}

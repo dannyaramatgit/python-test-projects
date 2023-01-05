@@ -1,0 +1,16 @@
+{% extends 'polls\base.html' %}
+
+{% block content%}
+
+<p>
+    <ul>
+    <form action="{% url 'polls:delete_question' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="delete question">
+    </ul>
+    {% comment %} {% else %}
+        <p>No polls are available.</p>
+    {% endif %} {% endcomment %}
+</p>
+{% endblock %}

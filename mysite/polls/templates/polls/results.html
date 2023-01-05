@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>{{ question.question_text }}</h1>
+{% if request.session.username %}<p><strong>Hello {{ request.session.username }}</strong></p>{%else%}<p><strong>No user name</strong></p>{% endif %}
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
+</body>
+</html>
